@@ -24,7 +24,7 @@
 #include <string.h>
 
 #define PLUGIN_NAME "ring-account"
-#define PLUGIN_PRIORITY (MCP_ACCOUNT_STORAGE_PLUGIN_PRIO_DEFAULT - 10)
+#define PLUGIN_PRIORITY (MCP_ACCOUNT_STORAGE_PLUGIN_PRIO_READONLY)
 #define PLUGIN_DESCRIPTION "Provide account for telepathy-ring"
 #define PLUGIN_PROVIDER "im.telepathy.Account.Storage.Ring"
 
