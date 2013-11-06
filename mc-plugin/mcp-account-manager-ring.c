@@ -38,6 +38,7 @@ G_DEFINE_TYPE_WITH_CODE (McpAccountManagerRing, mcp_account_manager_ring,
 struct _McpAccountManagerRingPrivate
 {
   gchar *account_name;
+  /* static string -> static string */
   GHashTable *params;
 };
 
@@ -46,7 +47,7 @@ mcp_account_manager_ring_dispose (GObject *object)
 {
   McpAccountManagerRing *self = (McpAccountManagerRing*) object;
 
-  g_hash_table_unref (self->priv->params);
+  g_clear_pointer (&self->priv->params, g_hash_table_unref);
 
   G_OBJECT_CLASS (mcp_account_manager_ring_parent_class)->dispose (object);
 }
@@ -61,18 +62,12 @@ mcp_account_manager_ring_init (McpAccountManagerRing *self)
 
   self->priv->account_name = "ring/tel/account0";
   self->priv->params = g_hash_table_new (g_str_hash, g_str_equal);
-  g_hash_table_insert (self->priv->params, g_strdup ("manager"),
-      g_strdup ("ring"));
-  g_hash_table_insert (self->priv->params, g_strdup ("protocol"),
-      g_strdup ("tel"));
-  g_hash_table_insert (self->priv->params, g_strdup ("DisplayName"),
-      g_strdup ("Cellular"));
-  g_hash_table_insert (self->priv->params, g_strdup ("Enabled"),
-      g_strdup ("true"));
-  g_hash_table_insert (self->priv->params, g_strdup ("ConnectAutomatically"),
-      g_strdup ("true"));
-  g_hash_table_insert (self->priv->params, g_strdup ("always_dispatch"),
-      g_strdup ("true"));
+  g_hash_table_insert (self->priv->params, "manager", "ring");
+  g_hash_table_insert (self->priv->params, "protocol", "tel");
+  g_hash_table_insert (self->priv->params, "DisplayName", "Cellular");
+  g_hash_table_insert (self->priv->params, "Enabled", "true");
+  g_hash_table_insert (self->priv->params, "ConnectAutomatically", "true");
+  g_hash_table_insert (self->priv->params, "always_dispatch", "true");
 }
 
 static void
