@@ -850,16 +850,6 @@ ring_connection_create_handle_repos(TpBaseConnection *base,
 }
 
 /* ---------------------------------------------------------------------- */
-
-static char *
-ring_connection_get_unique_connection_name(TpBaseConnection *base)
-{
-  (void)base;
-
-  return g_strdup("ring");      /* There can be only one */
-}
-
-/* ---------------------------------------------------------------------- */
 /* TpBaseConnection interface */
 
 static GPtrArray *
@@ -1283,7 +1273,6 @@ ring_connection_class_init_base_connection(TpBaseConnectionClass *klass)
 #define IMPLEMENT(x) klass->x = ring_connection_##x
   IMPLEMENT(create_handle_repos);
   /* IMPLEMENT(create_channel_factories); */
-  IMPLEMENT(get_unique_connection_name);
 
   /* IMPLEMENT(connecting) */
   IMPLEMENT (connected);

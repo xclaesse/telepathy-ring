@@ -99,9 +99,7 @@ ring_connection_manager_class_init(RingConnectionManagerClass *klass)
 
   object_class->constructed = ring_connection_manager_constructed;
 
-  parent_class->new_connection = NULL;
   parent_class->cm_dbus_name = "ring";
-  parent_class->protocol_params = NULL;
 
   modem_oface_register_type (MODEM_TYPE_SIM_SERVICE);
   modem_oface_register_type (MODEM_TYPE_SMS_SERVICE);
