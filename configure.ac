@@ -39,7 +39,7 @@ AC_ARG_ENABLE(mc-account-plugin,
 if test "x$enable_mc_account_plugin" != "xno"; then
     PKG_CHECK_MODULES(MCP,
         [
-            mission-control-plugins
+            mission-control-plugins >= 5.16.99
         ], have_mcp="yes", have_mcp="no")
 
     AC_MSG_CHECKING([Mission Control plugins dir])
