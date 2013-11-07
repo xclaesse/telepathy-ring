@@ -17,6 +17,8 @@ default-org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageReducedCh
 param-org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityModes=u dbus-property
 default-org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityModes=0
 
+param-modem=o
+
 # Deprecated
 param-account=s
 param-password=s
